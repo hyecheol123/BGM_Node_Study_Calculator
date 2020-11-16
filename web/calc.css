@@ -26,6 +26,8 @@
     margin: 0 auto;
     border-radius: 10px;
     text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .button-wrapper {
