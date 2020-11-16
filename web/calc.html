@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Hyecheol (Jerry) Jang">
@@ -11,7 +11,7 @@
 <body>
     <script defer src="calc.js"></script>
     <div class="calculator-wrapper">
-        <div class="display"></div>
+        <div contenteditable="true" class="display" onkeypress="enterDetect()"></div>
         <div class="button-wrapper">
             <!-- First Row -->
             <div class="button operator">(</div>
