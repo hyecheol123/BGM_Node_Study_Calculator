@@ -8,8 +8,6 @@ import http from 'http';
 import fs from 'fs';
 import url from 'url';
 
-const nodePort = 4000; // Port to run Node Webserver
-
 /**
  * handling HTTP requests depending on the request URL
  *
@@ -50,5 +48,5 @@ function requestHandler(request, response) {
   }
 }
 
-http.createServer(requestHandler).listen(nodePort);
-console.log(`Node Webserver started: Port ${nodePort}`);
+http.createServer(requestHandler).listen(4000);
+console.log("Node Webserver started: Port 4000");
