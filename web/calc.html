@@ -11,12 +11,12 @@
 <body>
     <script defer src="calc.js"></script>
     <div class="calculator-wrapper">
-        <div contenteditable="true" id="display" onkeypress="enterDetect()"></div>
+        <div contenteditable="true" id="display" onkeypress="keyInput()"></div>
         <div class="button-wrapper">
             <!-- First Row -->
             <div class="button operator" onclick="input('(')">(</div>
             <div class="button operator" onclick="input(')')">)</div>
-            <div class="button delete" onclick="clear()">C</div>
+            <div class="button delete" onclick="clearDisplay()">C</div>
             <div class="button delete" onclick="backspace()">⌫</div>
             <!-- Second Row -->
             <div class="button operand" onclick="input('7')">7</div>
