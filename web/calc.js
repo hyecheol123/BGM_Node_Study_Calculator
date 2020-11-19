@@ -32,9 +32,13 @@ function clearDisplay() {
  *
  * After result displayed, this function will block keyboard type-in before the display cleared
  */
-function result() {
-  // TODO: Get result
-  displayResult = true; // mark display need to be cleared
+async function result() {
+  // Get result
+  const response = await fetch(`http://localhost:4000/result?${document.getElementById("display").innerText}`);
+  document.getElementById("display").innerText = await response.text();
+
+  // mark display need to be cleared
+  displayResult = true;
 }
 
 /**
@@ -58,7 +62,7 @@ function input(button) {
  *   2. user pressed "Enter"
  *        if "Enter" pressed, run result() function to get result
  */
-function keyInput() {
+async function keyInput() {
   // Check whether it is ready to get user input or not
   if(displayResult) {
     clearDisplay();
@@ -68,6 +72,6 @@ function keyInput() {
   // noinspection JSDeprecatedSymbols
   if(event.code === "Enter") {
     document.getElementById("display").innerHTML = document.getElementById("display").innerHTML.trim();
-    result();
+    await result();
   }
 }
