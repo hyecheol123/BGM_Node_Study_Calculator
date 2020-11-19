@@ -25,14 +25,19 @@ function requestHandler(request, response) {
     // Case 1: Path is "result" - response with calculation result
     const calcString = requestURL.query; // Parse calc string
     // Check for validity
-    if(validCalc.test(calcString)) { // Containing Invalid Character
+    if(!validCalc.test(calcString)) { // No Error
+      try {
+        // Response with calculation result
+        const result = new Function(`return ${calcString}`)();
+        response.writeHead(200);
+        response.write(result.toString());
+      } catch(e) {
+        response.writeHead(400);
+        response.write('ERROR');
+      }
+    } else { // Has Error
       response.writeHead(400);
       response.write('ERROR');
-    } else { // Has No Error
-      // Response with calculation result
-      const result = new Function(`return ${calcString}`)();
-      response.writeHead(200);
-      response.write(result.toString());
     }
     response.end();
   } else {
@@ -65,3 +70,4 @@ function requestHandler(request, response) {
 
 http.createServer(requestHandler).listen(4000);
 console.log("Node Webserver started: Port 4000");
+console.log("http://localhost:4000/");
