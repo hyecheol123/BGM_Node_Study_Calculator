@@ -3,6 +3,7 @@
  *
  * @author Hyecheol (Jerry) Jang
  */
+
 let displayResult = false; // indicate display does not showing result
 
 /**
@@ -27,8 +28,7 @@ function clearDisplay() {
 }
 
 /**
- * Check for input validity (only allow numbers and selected operators)
- * and get calculated result from Node server
+ * Get calculated result from Node server
  *
  * After result displayed, this function will block keyboard type-in before the display cleared
  */
